@@ -1,0 +1,35 @@
+{
+  "name": "react-form-with-validation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://cdhumphreys@github.com/cdhumphreys/react-form-with-validation.git"
+  },
+  "author": "Carl Humphreys",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdhumphreys/react-form-with-validation/issues"
+  },
+  "homepage": "https://github.com/cdhumphreys/react-form-with-validation#readme",
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
