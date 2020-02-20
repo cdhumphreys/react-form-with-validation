@@ -1,0 +1,35 @@
+.input__label {
+    color: grey;
+    margin-bottom: 0.5em;
+}
+
+.input__field {
+    border-radius: 5px;
+    padding: 0.5em;
+    border: 2px solid lightgray;
+}
+
+.input__field--error {
+    border-color: red;
+}
+
+.input__help {
+    color: grey;
+    font-size: 0.75em;
+}
+
+.input__error {
+    color: red;
+    font-size: 0.75em;
+}
+
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 100%;
+
+    margin: 1em 0.5em;
+}
