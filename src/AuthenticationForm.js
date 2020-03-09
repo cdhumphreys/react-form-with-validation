@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import LoginForm from './LoginForm';
-import SignUpForm from './SignUpForm';
+import LoginForm from './components/LoginForm';
+import SignUpForm from './components/SignUpForm';
 
 const AuthenticationForm = () => {
     const [loggingIn, setLoggingIn] = useState(false);
@@ -17,7 +17,6 @@ const AuthenticationForm = () => {
                 :
                 <SignUpForm switchForm={switchForm}/>
             }
-            
         </div>
     );
 }

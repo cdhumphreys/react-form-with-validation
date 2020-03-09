@@ -1,11 +1,26 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 100%;
+
+    margin: 1em 0;
+}
+
 .input__label {
     color: grey;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.25em;
+}
+
+.input__label--error {
+    color: red;
 }
 
 .input__field {
     border-radius: 5px;
     padding: 0.5em;
+    margin-bottom: 0.25em;
     border: 2px solid lightgray;
 }
 
@@ -21,15 +36,4 @@
 .input__error {
     color: red;
     font-size: 0.75em;
-}
-
-
-.input-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    width: 100%;
-
-    margin: 1em 0.5em;
 }
