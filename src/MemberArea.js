@@ -1,8 +1,11 @@
 import React from 'react';
 
-const MemberArea = () => {
+const MemberArea = ({onLogout}) => {
     return (
-        <div>Member Area</div>
+        <div>
+            <h2>Member Area</h2>
+            <button className="button button--primary" onClick={onLogout}>Log Out</button>
+        </div>
     );
 }
 

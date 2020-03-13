@@ -1,28 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
 
+import Form from './Form';
+
+import { emailRe } from '../utils/regex';
 
 const LoginForm = (props) => {
-    const [userDetails, setUserDetails] = useState({email: '', password: ''});
+    const initialFormConfig = {
+        inputs: {
+            email: {
+                inputElType: 'input',
+                type: 'email',
+                value: '',
+                placeholder: 'Enter your email address',
+                label: 'Email',
+                validators: {
+                    required: true,
+                    regex: emailRe
+                },
+                valid: false,
+                touched: false,
+                errors: []
+            },
+            password: {
+                inputElType: 'input',
+                type: 'password',
+                value: '',
+                placeholder: 'Enter a password',
+                label: 'Password',
+                validators: {
+                    required: true,
+                },
+                valid: false,
+                touched: false,
+                errors: []
+            },
+        },
+        valid: false,
+        errors: []
+    };
 
-    function onInputChange (e){
-        const { name, value } = e.target;
-        console.log(name, value);
+    function onSubmit(formState) {
+        const email = formState.inputs.email.value;
+        const password = formState.inputs.password.value;
 
-        setUserDetails({
-            ...userDetails,
-            [name]: value
-        });
+        props.onLogin({email, password});
     }
 
     return (
-        <div className="form-container">
-            <h2>Log In</h2>
-            <form className="form" onSubmit={props.onLogin}>
-                {props.formErrors && props.formErrors.length > 0 && props.formErrors.map(e => <div key={e.length}>{e}</div>)}
-                <button className="button button--primary" type="submit">Log In</button>
-                <button className="button button--secondary" onClick={props.switchForm}>Sign Up</button>
-            </form>
-        </div>
+        <Form initialFormConfig={initialFormConfig} heading="Log In" onSubmit={onSubmit}>
+            <button className="button button--secondary" onClick={props.switchForm}>Sign Up</button> 
+        </Form>
     );
 }
 

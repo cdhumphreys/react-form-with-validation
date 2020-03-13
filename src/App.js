@@ -6,21 +6,20 @@ import AuthenticationForm from './AuthenticationForm';
 
 const App = () => {
     const [userLoggedIn, setUserLoggedIn] = useState(false);
+    const [users, setUsers] = useState([]);
 
-    const users = [];
-
-    function onRegister(userDetails) {
+    function onSignUp({email, password}) {
         // Register User
-        const userAlreadyExists = users.some(u => u.username === userDetails.username);
+        const userAlreadyExists = users.some(u => u.email === email);
         if (!userAlreadyExists) {
-            users.push({username: userDetails.username, password: userDetails.password});
+            setUsers([...users, {email, password}]);
             setUserLoggedIn(true);
         }
     }
 
-    function onLogin(userDetails) {
+    function onLogin({email, password}) {
         // Login if user matches details
-        const correctUserDetails = users.find(u => u.username === userDetails.username && u.password === userDetails.password);
+        const correctUserDetails = users.find(u => u.email === email && u.password === password);
         if (correctUserDetails) {
             setUserLoggedIn(true);
         }
@@ -33,8 +32,8 @@ const App = () => {
     return (
         <div className="app">
             {userLoggedIn ? 
-                <MemberArea /> :
-                <AuthenticationForm onRegister={onRegister} onLogin={onLogin} onLogout={onLogout}/>
+                <MemberArea onLogout={onLogout} /> :
+                <AuthenticationForm onSignUp={onSignUp} onLogin={onLogin}/>
             }
         </div>
     );
